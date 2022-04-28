@@ -1,6 +1,7 @@
 from flask import g
 from db import Db
 
+
 class Dog():
     def sanitize(self, dogs):
         if not isinstance(dogs, (list, tuple)):
