@@ -15,3 +15,5 @@ CREATE TABLE cats(
     PRIMARY KEY (id), 
     INDEX (name)
     );
+
+INSERT INTO users (username, password) VALUES ('admin', 'admin');
