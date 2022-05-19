@@ -12,5 +12,5 @@ Content-Type: application/json
 
 
 ### Token verification
-GET {{host}}/verify-token?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjEwMCwiZXhwIjoxNjUyOTczNzkxfQ.28OjliXfJu_GnLLJP_x8ZpatlYsHfDyQwOukMJimX-A HTTP/1.1
+GET {{host}}/verify-token?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWQiOjEwMCwiZXhwIjoxNjUzMDEzMzU3fQ.NVs-91y8TdtsQqGGK8-ktDct20I6EbI_c7J-PRXmuLg HTTP/1.1
 
