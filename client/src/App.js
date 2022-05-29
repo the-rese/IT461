@@ -30,29 +30,29 @@ function App() {
   const location = useLocation();
 
   const getDogs = async (url, options = null) => {
-      setUrl(url);
-      try {
-          const response = await axiosPrivate.get(url, options);
-          console.log(response.data);
-          setDogs(response.data);
-      } catch (err) {
-          console.error(err);
-          navigate('/login', { state: { from: location }, replace: true });
-      }
+    setUrl(url);
+    try {
+      const response = await axiosPrivate.get(url, options);
+      console.log(response.data);
+      setDogs(response.data);
+    } catch (err) {
+      console.error(err);
+      navigate('/login', { state: { from: location }, replace: true });
+    }
   }
   useEffect(() => {
-      const controller = new AbortController();
-      getDogs(url, {
-          signal: controller.signal
-      });
-      return () => {
-          controller.abort();
-      }
+    const controller = new AbortController();
+    getDogs(url, {
+      signal: controller.signal
+    });
+    return () => {
+      controller.abort();
+    }
   }, []);
 
-  const dogAddHandler = async ({name}) => {
+  const dogAddHandler = async ({ name }) => {
     console.log('DOG: ', name);
-    const response = await axiosPrivate.post('/dogs/', JSON.stringify({id: 0, name}));
+    const response = await axiosPrivate.post('/dogs/', JSON.stringify({ id: 0, name }));
     console.log(response.data);
     getDogs(url);
   }
@@ -60,6 +60,12 @@ function App() {
     console.log('DOG: ', dog);
     const response = await axiosPrivate.put('/dogs/', JSON.stringify(dog));
     console.log(response.data);
+    getDogs(url);
+  }
+  const dogDeleteHandler = async (dog) => {
+    console.log('DOG: ', dog);
+    const response = await axiosPrivate.delete('/dogs', JSON.stringify(dog));
+    console.log(response.data)
     getDogs(url);
   }
   return (
@@ -81,6 +87,7 @@ function App() {
           <Route path="dogs/create" element={<DogAdd addHandler={dogAddHandler} />} />
           <Route path="dogs/view/:id" element={<DogDetail />} />
           <Route path="dogs/edit/:id" element={<DogEdit updateHandler={dogUpdateHandler} />} />
+          <Route path="dogs/delete/:id" element={<DogDelete deleteHandler={dogDeleteHandler} />} />
         </Route>
 
 
