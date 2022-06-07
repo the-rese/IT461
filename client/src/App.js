@@ -15,6 +15,7 @@ import useAxiosPrivate from './hooks/useAxiosPrivate';
 import DogAdd from './components/DogAdd';
 import DogDetail from './components/DogDetail';
 import DogEdit from './components/DogEdit';
+import DogDelete from './components/DogDelete';
 
 const ROLES = {
   'User': 2001,
